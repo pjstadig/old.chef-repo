@@ -56,6 +56,6 @@ cookbook_file "/etc/network/interfaces" do
   group "root"
 end
 
-%w{tmux emacs git rlwrap}.each do |p|
+%w{tmux emacs git rlwrap stumpwm xserver-xorg}.each do |p|
   package p
 end
