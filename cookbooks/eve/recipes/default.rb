@@ -55,3 +55,7 @@ cookbook_file "/etc/network/interfaces" do
   owner "root"
   group "root"
 end
+
+%w{tmux emacs git}.each do |p|
+  package p
+end
