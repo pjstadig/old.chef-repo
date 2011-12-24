@@ -68,6 +68,6 @@ cookbook_file "/etc/default/keyboard" do
   notifies :run, resources(:execute => "reconfigure-console-keyboard"), :immediately
 end
 
-%w{tmux emacs git rlwrap stumpwm xserver-xorg ttf-inconsolata keychain ssh-askpass firefox xterm}.each do |p|
+%w{tmux emacs git rlwrap stumpwm xserver-xorg ttf-inconsolata keychain ssh-askpass firefox xfce4-terminal skype pidgin pidgin-skype}.each do |p|
   package p
 end
