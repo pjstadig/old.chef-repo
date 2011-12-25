@@ -81,3 +81,8 @@ cookbook_file "/etc/default/mpd" do
   group "root"
   notifies :run, resources(:execute => "reconfigure-console-keyboard"), :immediately
 end
+
+# Setup dropbox
+%w{python-gtk2 python-gpgme}.each do |p|
+  package p
+end
