@@ -74,3 +74,10 @@ end
    rtkit pavucontrol mpd mpc avahi-daemon}.each do |p|
   package p
 end
+
+cookbook_file "/etc/default/mpd" do
+  mode 0644
+  owner "root"
+  group "root"
+  notifies :run, resources(:execute => "reconfigure-console-keyboard"), :immediately
+end
