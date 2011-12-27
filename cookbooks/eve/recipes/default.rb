@@ -71,7 +71,7 @@ end
 %w{tmux emacs git rlwrap stumpwm xserver-xorg xinit ttf-inconsolata keychain
    ssh-askpass firefox xfce4-terminal skype pidgin pidgin-skype virtualbox
    virtualbox-dkms virtualbox-qt virtualbox-guest-additions-iso pulseaudio
-   rtkit pavucontrol mpd mpc avahi-daemon}.each do |p|
+   rtkit pavucontrol mpd mpc avahi-daemon xinput}.each do |p|
   package p
 end
 
