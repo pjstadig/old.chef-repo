@@ -69,8 +69,7 @@ cookbook_file "/etc/default/keyboard" do
 end
 
 %w{tmux emacs git rlwrap stumpwm xserver-xorg xinit ttf-inconsolata keychain
-   ssh-askpass firefox xfce4-terminal skype pidgin pidgin-skype virtualbox
-   virtualbox-dkms virtualbox-qt virtualbox-guest-additions-iso pulseaudio
+   ssh-askpass firefox xfce4-terminal skype pidgin pidgin-skype pulseaudio
    rtkit pavucontrol mpd mpc avahi-daemon xinput acpi-support}.each do |p|
   package p
 end
@@ -86,3 +85,5 @@ end
 %w{python-gtk2 python-gpgme}.each do |p|
   package p
 end
+
+include_recipe "virtualbox"
