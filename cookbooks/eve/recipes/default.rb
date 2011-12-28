@@ -70,7 +70,7 @@ end
 
 %w{tmux emacs git rlwrap ttf-inconsolata keychain ssh-askpass firefox
    xfce4-terminal skype pidgin pidgin-skype pulseaudio rtkit pavucontrol mpd
-   mpc avahi-daemon xinput acpi-support}.each do |p|
+   mpc avahi-daemon xinput acpi-support gnome-icon-theme-full}.each do |p|
   package p
 end
 
