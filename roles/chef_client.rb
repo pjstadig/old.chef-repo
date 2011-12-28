@@ -4,7 +4,8 @@ description "Installs the chef-client service."
 run_list("recipe[chef-client::service]")
 # Attributes applied if the node doesn't have it set already.
 default_attributes "chef_client" => {
-  "init_style" => "upstart"
+  "init_style" => "upstart",
+  "interval" => "86400"
 }
 # Attributes applied no matter what the node has set already.
 #override_attributes()
