@@ -70,7 +70,7 @@ end
 
 %w{tmux emacs git rlwrap stumpwm xserver-xorg xinit ttf-inconsolata keychain
    ssh-askpass firefox xfce4-terminal skype pidgin pidgin-skype pulseaudio
-   rtkit pavucontrol mpd mpc avahi-daemon xinput acpi-support gksu}.each do |p|
+   rtkit pavucontrol mpd mpc avahi-daemon xinput acpi-support}.each do |p|
   package p
 end
 
@@ -87,8 +87,3 @@ end
 end
 
 include_recipe "virtualbox"
-
-# configure gksu
-execute "[ `gconftool --get /apps/gksu/sudo-mode` == \"false\" ] && gconftool --type bool --set /apps/gksu/sudo-mode true" do
-  user "paul"
-end
