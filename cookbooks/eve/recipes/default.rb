@@ -68,11 +68,13 @@ cookbook_file "/etc/default/keyboard" do
   notifies :run, resources(:execute => "reconfigure-console-keyboard"), :immediately
 end
 
-%w{tmux emacs git rlwrap stumpwm xserver-xorg xinit ttf-inconsolata keychain
-   ssh-askpass firefox xfce4-terminal skype pidgin pidgin-skype pulseaudio
-   rtkit pavucontrol mpd mpc avahi-daemon xinput acpi-support}.each do |p|
+%w{tmux emacs git rlwrap ttf-inconsolata keychain ssh-askpass firefox
+   xfce4-terminal skype pidgin pidgin-skype pulseaudio rtkit pavucontrol mpd
+   mpc avahi-daemon xinput acpi-support}.each do |p|
   package p
 end
+
+include_recipe "stumpwm"
 
 cookbook_file "/etc/default/mpd" do
   mode 0644
