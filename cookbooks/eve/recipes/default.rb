@@ -71,7 +71,7 @@ end
 %w{tmux emacs git rlwrap ttf-inconsolata keychain ssh-askpass firefox
    xfce4-terminal pidgin pulseaudio rtkit pavucontrol mpd mpc avahi-daemon
    xinput acpi-support gnome-icon-theme-full gnome-keyring libpam-gnome-keyring
-   xdg-utils openjdk-7-jre openjdk-7-jdk}.each do |p|
+   xdg-utils openjdk-7-jre openjdk-7-jdk adobe-flashplugin}.each do |p|
   package p
 end
 
