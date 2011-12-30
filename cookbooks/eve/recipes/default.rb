@@ -56,17 +56,7 @@ cookbook_file "/etc/network/interfaces" do
   group "root"
 end
 
-execute "reconfigure-console-keyboard" do
-  command "dpkg-reconfigure -f noninteractive -p high console-setup"
-  action :nothing
-end
-
-cookbook_file "/etc/default/keyboard" do
-  mode 0644
-  owner "root"
-  group "root"
-  notifies :run, resources(:execute => "reconfigure-console-keyboard"), :immediately
-end
+include_recipe "keyboard"
 
 %w{tmux emacs git rlwrap ttf-inconsolata keychain ssh-askpass firefox
    xfce4-terminal pidgin pulseaudio rtkit pavucontrol mpd mpc avahi-daemon
