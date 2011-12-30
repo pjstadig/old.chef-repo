@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: sonian
+# Cookbook Name:: basic
 # Recipe:: default
 #
 # Copyright 2011, Paul Stadig
@@ -16,6 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-include_recipe "keyboard"
-include_recipe "basic"
-include_recipe "openjdk"
+%w{tmux emacs git rlwrap}.each do |p|
+  package p
+end

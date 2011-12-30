@@ -57,11 +57,12 @@ cookbook_file "/etc/network/interfaces" do
 end
 
 include_recipe "keyboard"
+include_recipe "basic"
 
-%w{tmux emacs git rlwrap ttf-inconsolata keychain ssh-askpass firefox
-   xfce4-terminal pidgin pulseaudio rtkit pavucontrol mpd mpc avahi-daemon
-   xinput acpi-support gnome-icon-theme-full gnome-keyring libpam-gnome-keyring
-   xdg-utils adobe-flashplugin}.each do |p|
+%w{ttf-inconsolata keychain ssh-askpass firefox xfce4-terminal pidgin pulseaudio
+   rtkit pavucontrol mpd mpc avahi-daemon xinput acpi-support
+   gnome-icon-theme-full gnome-keyring libpam-gnome-keyring xdg-utils
+   adobe-flashplugin}.each do |p|
   package p
 end
 
