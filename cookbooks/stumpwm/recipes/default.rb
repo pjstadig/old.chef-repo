@@ -19,6 +19,7 @@
 package "sbcl"
 package "sbcl-doc"
 package "cl-clx-sbcl"
+package "texinfo"
 package "stumpwm"
 package "xserver-xorg"
 package "xinit"
