@@ -19,3 +19,15 @@
 include_recipe "keyboard"
 include_recipe "basic"
 include_recipe "openjdk"
+
+package "libshadow-ruby1.8"
+
+user "sonian" do
+  uid 7000
+  supports :manage_home => true
+  home "/home/sonian"
+  shell "/bin/bash"
+  password "$1$alefTPi5$fXh04z3ikLmRYf2Ms.3y50"
+end
+
+# TODO: setup authorized_keys
