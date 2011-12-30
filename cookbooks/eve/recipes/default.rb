@@ -71,15 +71,11 @@ end
 %w{tmux emacs git rlwrap ttf-inconsolata keychain ssh-askpass firefox
    xfce4-terminal pidgin pulseaudio rtkit pavucontrol mpd mpc avahi-daemon
    xinput acpi-support gnome-icon-theme-full gnome-keyring libpam-gnome-keyring
-   xdg-utils openjdk-7-jre openjdk-7-jdk adobe-flashplugin}.each do |p|
+   xdg-utils adobe-flashplugin}.each do |p|
   package p
 end
 
-execute "update-java-alternatives" do
-  command "update-java-alternatives -s java-1.7.0-openjdk-amd64"
-  returns [0,2]
-end
-
+include_recipe "openjdk"
 include_recipe "stumpwm"
 
 cookbook_file "/etc/default/mpd" do

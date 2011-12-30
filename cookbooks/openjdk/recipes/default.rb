@@ -1,9 +1,8 @@
 #
-# Author:: Seth Chisamore (<schisamo@opscode.com>)
-# Cookbook Name:: java
-# Attributes:: default
+# Cookbook Name:: openjdk
+# Recipe:: default
 #
-# Copyright 2010, Opscode, Inc.
+# Copyright 2011, Paul Stadig
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,14 +15,21 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
+if node[:platform_version] == "11.10"
+  package "openjdk-7-jre"
+  package "openjdk-7-jdk"
 
-default['java']['install_flavor'] = "openjdk"
-
-case platform
-when "centos","redhat","fedora"
-  default['java']['version'] = "6u25"
-  default['java']['arch'] = kernel['machine'] =~ /x86_64/ ? "amd64" : "i586"
-  set['java']['java_home'] = "/usr/lib/jvm/java"
+  execute "update-java-alternatives" do
+    command "update-java-alternatives -s java-1.7.0-openjdk-amd64"
+    returns [0,2]
+  end
 else
-  set['java']['java_home'] = "/usr/lib/jvm/default-java"
+  package "openjdk-6-jre"
+  package "openjdk-6-jdk"
+
+  execute "update-java-alternatives" do
+    command "update-java-alternatives -s java-6-openjdk"
+    returns [0,2]
+  end
 end
