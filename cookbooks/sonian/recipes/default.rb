@@ -26,6 +26,8 @@ package "curl"
 package "mysql-server"
 package "socat"
 package "p7zip-full"
+package "unzip"
+package "readpst"
 
 user "sonian" do
   uid 7000
