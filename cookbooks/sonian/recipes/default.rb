@@ -19,6 +19,7 @@
 include_recipe "keyboard"
 include_recipe "basic"
 include_recipe "openjdk"
+include_recipe "rabbitmq"
 
 package "libshadow-ruby1.8"
 package "curl"
