@@ -24,6 +24,8 @@ include_recipe "rabbitmq"
 package "libshadow-ruby1.8"
 package "curl"
 package "mysql-server"
+package "socat"
+package "p7zip-full"
 
 user "sonian" do
   uid 7000
