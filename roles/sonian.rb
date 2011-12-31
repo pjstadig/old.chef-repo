@@ -5,9 +5,9 @@ run_list("role[chef-client]", "recipe[sonian]", "recipe[sudo]")
 # Attributes applied if the node doesn't have it set already.
 default_attributes "authorization" => {
   "sudo" => {
-    "passwordless" => true
+    "passwordless" => true,
+    "users" => ["sonian"]
   },
-  "users" => ["sonian"]
 }
 # Attributes applied no matter what the node has set already.
 #override_attributes()
