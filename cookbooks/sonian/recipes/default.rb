@@ -30,7 +30,17 @@ user "sonian" do
   password "$1$alefTPi5$fXh04z3ikLmRYf2Ms.3y50"
 end
 
-# TODO: setup authorized_keys
+directory "/home/sonian/.ssh" do
+  owner "sonian"
+  group "sonian"
+  mode "0755"
+end
+
+cookbook_file "/home/sonian/.ssh/authorized_keys" do
+  owner "sonian"
+  group "sonian"
+  mode "0644"
+end
 
 ["/home/sonian/src", "/home/sonian/src/sonian"].each do |d|
   directory d do
