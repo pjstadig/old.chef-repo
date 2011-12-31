@@ -68,3 +68,12 @@ remote_file "/home/sonian/src/sonian/elasticsearch-#{es_version}.tar.gz" do
   notifies :run, resources(:execute => "expand-elasticsearch"), :immediately
   not_if { File.exists?("/home/sonian/src/sonian/elasticsearch-#{es_version}") }
 end
+
+user "vagrant" do
+  action :remove
+end
+
+directory "/home/vagrant" do
+  action :delete
+  recursive true
+end
