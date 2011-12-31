@@ -62,7 +62,7 @@ include_recipe "basic"
 %w{ttf-inconsolata keychain ssh-askpass firefox xfce4-terminal pidgin pulseaudio
    rtkit pavucontrol mpd mpc avahi-daemon xinput acpi-support
    gnome-icon-theme-full gnome-keyring libpam-gnome-keyring xdg-utils
-   adobe-flashplugin}.each do |p|
+   adobe-flashplugin evince}.each do |p|
   package p
 end
 
