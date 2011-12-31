@@ -28,6 +28,7 @@ package "socat"
 package "p7zip-full"
 package "unzip"
 package "readpst"
+package "rar"
 
 user "sonian" do
   uid 7000
