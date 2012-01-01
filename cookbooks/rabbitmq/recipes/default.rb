@@ -21,9 +21,10 @@ package "erlang-nox"
 
 deb_file = "rabbitmq-server_2.3.1-1_all.deb"
 remote_file "/usr/src/#{deb_file}" do
+  action :create_if_missing
   source "http://www.rabbitmq.com/releases/rabbitmq-server/v2.3.1/#{deb_file}"
 end
 
 dpkg_package "/usr/src/#{deb_file}" do
-  only_if "dpkg-query -s rabbitmq-server | grep not-installed"
+  not_if "dpkg-query -s rabbitmq-server | grep ' installed'"
 end
