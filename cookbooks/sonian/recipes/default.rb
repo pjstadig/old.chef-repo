@@ -26,9 +26,12 @@ package "curl"
 package "mysql-server"
 package "socat"
 package "p7zip-full"
+package "zip"
 package "unzip"
 package "readpst"
 package "rar"
+package "zsh"
+package "maven2"
 
 user "vagrant" do
   action :lock
