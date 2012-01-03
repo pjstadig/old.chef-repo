@@ -56,22 +56,3 @@ end
     mode "0755"
   end
 end
-
-es_version = node[:sonian][:elasticsearch][:version]
-execute "expand-elasticsearch" do
-  command "tar xzf elasticsearch-#{es_version}.tar.gz" +
-    " && ln -sf elasticsearch-#{es_version} elasticsearch" +
-    " && rm elasticsearch-#{es_version}.tar.gz"
-  cwd "/home/vagrant/src/sonian"
-  user "vagrant"
-  action :nothing
-end
-
-remote_file "/home/vagrant/src/sonian/elasticsearch-#{es_version}.tar.gz" do
-  source "https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-#{es_version}.tar.gz"
-  owner "vagrant"
-  group "vagrant"
-  mode "0600"
-  notifies :run, resources(:execute => "expand-elasticsearch"), :immediately
-  not_if { File.exists?("/home/vagrant/src/sonian/elasticsearch-#{es_version}") }
-end
