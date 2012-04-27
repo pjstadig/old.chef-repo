@@ -16,20 +16,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-if node[:platform_version] == "11.10"
-  package "openjdk-7-jre"
-  package "openjdk-7-jdk"
-
-  execute "update-java-alternatives" do
-    command "update-java-alternatives -s java-1.7.0-openjdk-amd64"
-    returns [0,2]
-  end
-else
+if node[:platform_version] == "10.10"
   package "openjdk-6-jre"
   package "openjdk-6-jdk"
 
   execute "update-java-alternatives" do
     command "update-java-alternatives -s java-6-openjdk"
+    returns [0,2]
+  end
+else
+  package "openjdk-7-jre"
+  package "openjdk-7-jdk"
+
+  execute "update-java-alternatives" do
+    command "update-java-alternatives -s java-1.7.0-openjdk-amd64"
     returns [0,2]
   end
 end
