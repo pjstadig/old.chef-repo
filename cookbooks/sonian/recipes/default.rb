@@ -44,6 +44,7 @@ directory "/home/vagrant/.ssh" do
 end
 
 cookbook_file "/home/vagrant/.ssh/authorized_keys" do
+  action :create_if_missing
   owner "vagrant"
   group "vagrant"
   mode "0644"
